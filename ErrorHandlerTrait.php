@@ -25,8 +25,10 @@ trait ErrorHandlerTrait {
   protected function clearError(string $key, string $which=null) {
     if (!array_key_exists($key, $this->errors)) return $this;
     if ($which && !array_key_exists($which, $this->errors[$key])) return $this;
-    if ($which) unset($this->errors[$key][$which]);
-    else unset($this->errors[$key]);
+    if ($which) {
+      unset($this->errors[$key][$which]);
+      if (count($this->errors[$key]) == 0) unset($this->errors[$key]);
+    } else unset($this->errors[$key]);
     return $this;
   }
   protected function setError(string $key, string $val, string $which=null) {
