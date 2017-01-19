@@ -1,6 +1,12 @@
 <?php
 namespace Skel;
 
+/**
+ * ObservableTrait is a set of methods that fulfill the \Skel\Interfaces\Observable interface
+ *
+ * @see \Skel\Interfaces\Observable
+ */
+
 trait ObservableTrait {
   protected $_listeners = array();
 
